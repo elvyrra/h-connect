@@ -1,0 +1,94 @@
+; Menus
+main-menu-title = "Utility"
+contact-menu-title = "Contacts"
+page-title = "Contacts"
+
+; Permission
+permission-name-admin-contact = "Admin: Set up categories, profil"
+permission-name-manage-contract = "Add/Edit/Delete contacts/groups"
+permission-name-view-contact = "See contacts and groups"
+
+; Tabs
+contact-tab-title = "Contacts"
+group-tab-title = "Groups"
+settings-tab-title = "Configuration"
+
+
+; Contacts
+list-edit-contact = "Edit contact"
+btn-add-contact-label = "Add contact"
+list-remove-contact = "Delete contact"
+fullName-label = "Firstname - Lastname"
+company-job-label = "Company - Job"
+lastName-label = "Lastname"
+firstName-label = "Firstname"
+company-label = "Company"
+job-label = "Job"
+email-label= "Email"
+address-label = "Address"
+phoneNumber-label = "Office N°"
+cellNumber-label = "Cell N°"
+personalNumber-label = "Personal N°"
+city-label = "City"
+postcode-label = "PostCode"
+country-label = "Country"
+contact-form-title = "Edit contact"
+contact-general-title = "General"
+contact-details-title = "Details"
+category-label = "Categories"
+type-intro = "Select good category to see appropriate fields."
+delete-contact-confirmation = "Are you sure to delete this contact?"
+edit-contact-page-title = "Edit contact"
+
+; Import/Export contacts
+btn-export-contact-label = "Export contacts"
+btn-import-contact-label = "Import contacts"
+contact-import-title = "Import contacts"
+import-intro-hawk-text = "Vous pouvez importer une liste de contact provenant de Hawk."
+import-intro-text = "Vous pouvez importer une liste de contact provenant de Hawk, de Google Contact, Outlook ou avec un format vCard. Veuillez choisir le bon format pour garantir la bonne importation des données."
+type-import-label = "Format des données"
+type-import-hawk-label = "Format Hawk"
+type-import-google-label = "Format CSV Google (importation dans un compte Google)"
+type-import-outlook-label = "Format CSV Outlook (importation dans Outlook ou une autre application)"
+type-import-vCard-label = "Format vCard (importation dans le carnet d'adresses Apple ou une autre application)"
+file-contacts-label = "Fichier"
+import-submit-value = "Importer"
+
+; Groups
+btn-add-group-label = "Add group"
+list-edit-group = "Edit group"
+list-remove-group = "Supprimer un groupe"
+group-name-label = "Nom"
+group-description-label = "Description"
+group-preview-label = "Aperçu"
+group-form-search-label = "Recherche un contact"
+group-form-search-placeholder = "Nom ou prénom ou société"
+group-contacts-label = "Personnes dans le groupe"
+group-form-title = "Editer un groupe"
+delete-group-confirmation = "Etes-vous sur de vouloir supprimer le groupe?"
+
+
+; Settings - Questions List
+new-question-btn = "Ajouter un champ"
+edit-contact-question = "Editer un champ"
+delete-contact-question = "Supprimer un champ"
+displayInList-question-label = "Afficher le champ dans la liste?"
+displayInList-label-1 = "Oui"
+displayInList-label-0 = "Non"
+delete-contact-question-confirmation = "Etes-vous sure de vouloir supprimer le champ? Toutes les données relatives a ce champ vont être également supprimé?"
+
+; Settings - Question Form
+name-question-label = "Nom du champ"
+type-question-label = "Type de champ"
+contact-questions-title = "Editer un champ de profil"
+contact-question-form-general-legend = "Données générales"
+contact-question-form-name-label = "Nom du champ"
+contact-question-form-type-label = "Type de champ"
+contact-question-form-parameters-legend = "Paramètres du champ"
+contact-question-form-minDate-label = "Date minimale"
+contact-question-form-maxDate-label = "Date maximale"
+contact-question-form-inList-label = " Afficher le champ dans la liste?"
+contact-question-form-options-label = "Liste des valeurs possible"
+contact-question-already-exist = "Ce nom de champ est déja utilié. Veuillez choisir un autre nom."
+
+
