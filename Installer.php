@@ -92,7 +92,6 @@ class Installer extends PluginInstaller{
         Permission::add($this->_plugin . '.admin-contact', 1, 0);   // Set up
         Permission::add($this->_plugin . '.view-contact', 1, 0);    // Only show list contact
 
-
         if(Plugin::existAndIsActive('h-agenda')){
             App::db()->query(
                 "CREATE TABLE IF NOT EXISTS `" . \Hawk\Plugins\HAgenda\HAgendaContact::getTable() . "` (

@@ -325,8 +325,8 @@ class ConnectController extends Controller{
             $classname = 'Hawk\\' . ucwords($question->type) . 'Input';
             $field = json_decode($question->parameters, true);
             
-            $field['name'] = str_replace(" ", "-", $question->name);
-            $field['id'] = 'h-connect-my-contact-form-' . str_replace(" ", "-", $question->name) . '-input';
+            $field['name'] = urlencode($question->name);
+            $field['id'] = 'h-connect-my-contact-form-' . urlencode($question->name) . '-input';
             $field['independant'] = true;
             $field['label'] = $question->name; 
 
@@ -338,9 +338,6 @@ class ConnectController extends Controller{
                     $field['after'] = sprintf('<img src="%s" class="profile-image" />',
                             $contact->getProfileData($question->name) ? $contact->getProfileData($question->name) : ''
                         );
-                }
-                else{
-
                 }
             }
 
@@ -408,9 +405,10 @@ class ConnectController extends Controller{
                         $contact = HContact::getById($contactId);
 
                         foreach($questions as $question){
+                            $qname = urlencode($question->name);
 
                             if($question->type === 'file') {
-                                $upload = Upload::getInstance($question->name);
+                                $upload = Upload::getInstance($qname);
 
                                 if($upload) {
                                     $file = $upload->getFile(0);
@@ -427,7 +425,7 @@ class ConnectController extends Controller{
                                 }
                             }
                             else{
-                                $value = $form->inputs[str_replace(" ", "-", $question->name)]->dbvalue();
+                                $value = $form->inputs[str_replace(" ", "-", $qname)]->dbvalue();
 
                                 if($value !== null) {
                                     $contact->setProfileData($question->name, $value);
@@ -443,6 +441,8 @@ class ConnectController extends Controller{
                 catch(Exception $e){
                     return $form->response(Form::STATUS_ERROR);
                 }
+
+                return $form->response(Form::STATUS_SUCCESS);
             }
         }
     }
