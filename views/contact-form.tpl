@@ -13,5 +13,7 @@
 <div class="row" >
     <div class="col-md-6">{panel type="info" content="{$general}" title="{Lang::get('h-connect.contact-general-title')}"}</div>
 
-    <div class="col-md-6">{panel type="info" content="{$custom}" title="{Lang::get('h-connect.contact-details-title')}"}</div>
+    {if($displayCustom)}
+    	<div class="col-md-6">{panel type="info" content="{$custom}" title="{Lang::get('h-connect.contact-details-title')}"}</div>
+    {/if}
 </div>

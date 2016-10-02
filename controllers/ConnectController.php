@@ -121,17 +121,26 @@ class ConnectController extends Controller{
                     }
                 ),
                 
-                'fullname' => array(
-                    'field' => 'CONCAT_WS(" ", firstName, lastName)',
-                    'label' => Lang::get($this->_plugin . '.fullName-label'),
+                'lastName' => array(
+                    'label' => Lang::get($this->_plugin . '.lastName-label'),
+                    'href' => function($value, $field, $contact) {
+                        return App::router()->getUri('h-connect-contact-edit', array('contactId' => $contact->id));
+                    },
+                ),
+
+                'firstName' => array(
+                    'label' => Lang::get($this->_plugin . '.firstName-label'),
                     'href' => function($value, $field, $contact) {
                         return App::router()->getUri('h-connect-contact-edit', array('contactId' => $contact->id));
                     },
                 ),
                 
-                'fulljob' => array(
-                    'field' => 'CONCAT_WS(" - ", company, job)',
-                    'label' => Lang::get($this->_plugin . '.company-job-label'),
+                'company' => array(
+                    'label' => Lang::get($this->_plugin . '.company-label'),
+                ),
+
+                'job' => array(
+                    'label' => Lang::get($this->_plugin . '.company-label'),
                 ),
 
                 'cellNumber' => array(
@@ -359,6 +368,7 @@ class ConnectController extends Controller{
             $content = View::make(
                 Plugin::current()->getView("contact-form.tpl"), array(
                     'form' => $form,
+                    'displayCustom' => !empty($questions)
                 )
             );
 

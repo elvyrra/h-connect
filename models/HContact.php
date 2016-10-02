@@ -2,13 +2,129 @@
 
 namespace Hawk\Plugins\HConnect;
 
-
+/**
+ * This class describes the data HContact behavior.
+ *
+ * @package HConnect
+ */
 class HContact extends Model{
-	protected static $tablename = "HContact";	
+
+    /**
+     * The table containing the projects data
+     *
+     * @var string
+     */
+	protected static $tablename = "HContact";
+
+    /**
+     * Primary Column for the table
+     *
+     * @var string
+     */	
 	protected static $primaryColumn = "id";
 
-	private $profile;
+    /**
+     * The table fields
+     *
+     * @var array
+     */
+    protected static $fields = array(
+        'id' => array(
+            'type' => 'INT(11)',
+            'auto_increment' => true
+        ),
 
+        'userId' => array(
+            'type' => 'INT(11)',
+        ),
+
+        'firstName' => array(
+            'type' => 'VARCHAR(64)'
+        ),
+
+        'lastName' => array(
+            'type' => 'VARCHAR(64)'
+        ),
+
+        'job' => array(
+            'type' => 'VARCHAR(64)'
+        ),
+
+        'company' => array(
+            'type' => 'VARCHAR(64)'
+        ),
+
+        'phoneNumber' => array(
+            'type' => 'VARCHAR(16)'
+        ),
+
+        'cellNumber' => array(
+            'type' => 'VARCHAR(16)'
+        ),
+
+        'personalNumber' => array(
+            'type' => 'VARCHAR(16)'
+        ),
+
+        'email' => array(
+            'type' => 'VARCHAR(64)'
+        ),
+
+        'address' => array(
+            'type' => 'TEXT'
+        ),
+
+        'city' => array(
+            'type' => 'VARCHAR(64)'
+        ),
+
+        'postcode' => array(
+            'type' => 'VARCHAR(10)'
+        ),
+
+        'country' => array(
+            'type' => 'VARCHAR(64)'
+        ),
+
+        'ctime' => array(
+            'type' => 'INT(11)'
+        ),
+
+        'mtime' => array(
+            'type' => 'INT(11)'
+        ),
+    );
+
+    /**
+     * The table constraints
+     */
+    protected static $constraints = array(
+        'UserId_ibfk' => array(
+            'type' => 'foreign',
+            'fields' => array(
+                'userId'
+            ),
+            'references' => array(
+                'model' => 'User',
+                'fields' => array(
+                    'id'
+                )
+            ),
+            'on_update' => 'CASCADE',
+            'on_delete' => 'CASCADE'
+        ),
+    );
+
+    /**
+     * Contact's profile
+     *
+     * @var object
+     */
+    private $profile;
+
+    /**
+     * Constructor
+     */
 	public function __construct($data = array()){
 		parent::__construct($data);
 
