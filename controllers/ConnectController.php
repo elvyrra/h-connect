@@ -121,26 +121,17 @@ class ConnectController extends Controller{
                     }
                 ),
                 
-                'lastName' => array(
-                    'label' => Lang::get($this->_plugin . '.lastName-label'),
-                    'href' => function($value, $field, $contact) {
-                        return App::router()->getUri('h-connect-contact-edit', array('contactId' => $contact->id));
-                    },
-                ),
-
-                'firstName' => array(
-                    'label' => Lang::get($this->_plugin . '.firstName-label'),
+                'fullName' => array(
+                    'field' => 'CONCAT_WS(" ", firstName, lastName)',
+                    'label' => Lang::get($this->_plugin . '.fullName-label'),
                     'href' => function($value, $field, $contact) {
                         return App::router()->getUri('h-connect-contact-edit', array('contactId' => $contact->id));
                     },
                 ),
                 
-                'company' => array(
-                    'label' => Lang::get($this->_plugin . '.company-label'),
-                ),
-
-                'job' => array(
-                    'label' => Lang::get($this->_plugin . '.company-label'),
+                'company_job' => array(
+                    'field' => 'CONCAT_WS(" - ", company, job)',
+                    'label' => Lang::get($this->_plugin . '.company-job-label'),
                 ),
 
                 'cellNumber' => array(
