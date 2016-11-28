@@ -2,7 +2,7 @@
 
 'use strict';
 
-require(['app'], function() {
+require(['app', 'jquery', 'lang', 'emv'], function() {
     var list = app.lists['h-connect-my-contacts-list'];
 
     $(".delete-contact").click(function(){
@@ -15,12 +15,12 @@ require(['app'], function() {
 
 
     $('#export-contact-list-button').click(function() {
+
         var selectedLines = [];
 
-        list.node.find('.list-select-line:checked').each(function() {
+        $(list.node()).find('.list-select-line:checked').each(function() {
             selectedLines.push($(this).attr('value'));
         });
-
         window.open(app.getUri('h-connect-contact-export') + (selectedLines.length ? '?contacts=' + selectedLines.join(',') : ''));
     });
 });

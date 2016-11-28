@@ -326,7 +326,7 @@ class ConnectController extends Controller{
             $field = json_decode($question->parameters, true);
             
             $field['name'] = urlencode($question->name);
-            $field['id'] = 'h-connect-my-contact-form-' . urlencode($question->name) . '-input';
+            $field['id'] = 'h-connect-my-contact-form-' . uniqid() . '-input';
             $field['independant'] = true;
             $field['label'] = $question->name; 
 
@@ -1041,12 +1041,12 @@ class ConnectController extends Controller{
         $contacts = HContact::getListByExample(new DBExample(array(
             '$or' => array(
                 array(
-                    'CONCAT(lastName, " ", firstName)' => array(
+                    'lastName' => array(
                         '$like' => App::request()->getParams('q') . '%'
                     )
                 ),
                 array(
-                    'CONCAT(firstName, " ", lastName)' => array(
+                    'firstName' => array(
                         '$like' => App::request()->getParams('q') . '%'
                     )
                 ),

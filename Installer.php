@@ -99,7 +99,6 @@ class Installer extends PluginInstaller{
      */
     /*
     public function settings(){
-
     }
     */
 }

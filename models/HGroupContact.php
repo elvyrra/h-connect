@@ -23,7 +23,7 @@ class HGroupContact extends Model{
      */	
 	protected static $primaryColumn = "id";
 
-     /**
+    /**
      * The table fields
      *
      * @var array
