@@ -13,7 +13,6 @@ require(['app', 'jquery', 'lang', 'emv'], function() {
         }
     });
 
-
     $('#export-contact-list-button').click(function() {
 
         var selectedLines = [];

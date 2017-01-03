@@ -109,7 +109,7 @@ class ConnectController extends Controller{
                             'size' => 'lg',
                             'href' => App::router()->getUri('h-connect-contact-edit', array('contactId' => $contact->id)),
                             'title' => Lang::get($this->_plugin . '.list-edit-contact'),
-                        )) .
+                        ));/* .
 
                         Icon::make(array(
                             'icon' => 'times-circle',
@@ -117,7 +117,7 @@ class ConnectController extends Controller{
                             'class' => 'text-danger delete-contact',
                             'data-contact' => $contact->id,
                             'title' => Lang::get($this->_plugin . '.list-remove-contact'),
-                        ));
+                        ));*/
                     }
                 ),
                 
@@ -780,7 +780,7 @@ class ConnectController extends Controller{
     public function getListGroup(){
 
         $list = new ItemList(array(
-            'id' => 'h-connect-my-group-list',
+            'id' => 'h-connect-group-list',
             'model' => 'HDirectoryGroup',
             'action' => App::router()->getUri('h-connect-group-list'),
             'reference' => 'id',
@@ -809,7 +809,7 @@ class ConnectController extends Controller{
                             'href' => App::router()->getUri('h-connect-group-edit', array('groupId' => $group->id)),
                             'title' => Lang::get($this->_plugin . '.list-edit-group'),
                             'target' => 'dialog',
-                        )) .
+                        ));/* .
 
                         Icon::make(array(
                             'icon' => 'times-circle',
@@ -817,7 +817,7 @@ class ConnectController extends Controller{
                             'class' => 'text-danger delete-group',
                             'data-group' => $group->id,
                             'title' => Lang::get($this->_plugin . '.list-remove-group'),
-                        ));
+                        ));*/
                     }
                 ),
                 'name' => array(
@@ -877,10 +877,8 @@ class ConnectController extends Controller{
         if($this->groupId)
             $contacts = HGroupContact::getAllContactByGroupId($this->groupId);
 
-        $idForm = 'h-connect-group-form-' . uniqid();
-
         $param = array(
-            'id' => $idForm,
+            'id' => 'h-connect-group-form',
             'model' => 'HDirectoryGroup',
             'reference' => array('id' => $this->groupId),
             'fieldsets' => array(
@@ -890,7 +888,7 @@ class ConnectController extends Controller{
                         'name' => 'contacts',
                         'default' => json_encode($contacts, JSON_NUMERIC_CHECK),
                         'attributes' => array(
-                            'ko-value' => 'ko.toJSON(contacts)'
+                            'e-value' => 'contacts.toString()'
                         ),
                     )),
 
@@ -927,8 +925,9 @@ class ConnectController extends Controller{
                         "placeholder" => Lang::get($this->_plugin . '.group-form-search-placeholder'),
                         'attributes' => array(
                             'autocomplete' => 'off',
-                            'ko-value' => 'search',
-                            'ko-autocomplete' => '{source : contactAutocompleteSource, change : onContactChosen}',
+                            'e-value' => 'search',
+                            'e-autocomplete' => "{source : '" . App::router()->getUri('h-connect-contact-autocomplete') . "',
+                                                    'change' : onContactChosen}",
                             'style' => "width: 300px;",
                         )
                     )),
@@ -970,7 +969,6 @@ class ConnectController extends Controller{
         $form->autocomplete = false;
 
         if(!$form->submitted()){
-            $this->addJavaScriptInline("var form = app.forms['" . $idForm . "'];");
             $this->addJavascript($this->getPlugin()->getJsUrl('group-form.js'));
             $this->addCss($this->getPlugin()->getCssUrl('contact.less'));
             $this->addKeysToJavaScript($this->_plugin . '.contact-already-in-group');

@@ -131,7 +131,7 @@ class SettingsController extends Controller{
                         }, $allowedTypes)),
                         'label' => Lang::get($this->_plugin . '.contact-question-form-type-label'),
                         'attributes' => array(
-                            'ko-value' => 'type',
+                            'e-value' => 'type',
                         )
                     )),
 
@@ -154,7 +154,7 @@ class SettingsController extends Controller{
                         'id' => 'question-form-parameters',
                         'hidden' => true,
                         'attributes' => array(
-                            'ko-value' => 'parameters'
+                            'e-value' => 'parameters'
                         )
                     )),
 
@@ -165,7 +165,7 @@ class SettingsController extends Controller{
                         'label' =>  Lang::get($this->_plugin . '.contact-question-form-options-label'),
                         'labelClass' => 'required',
                         'attributes' => array(
-                            'ko-value' => "options",
+                            'e-value' => "options",
                         ),
                         'cols' => 20,
                         'rows' => 10

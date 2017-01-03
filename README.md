@@ -6,6 +6,18 @@ Une fois votre liste de contact établie, vous pouvez également regrouper les c
 
 Le plugin H-Connect possède également la possibilité d’importer et d’exporter la liste des contacts sous le format json.
 
+# Installation
+
+## Depuis le gestionnaire de plugin
+
+Depuis votre application Hawk, dans le gestionnaire de plugin (menu <b>Administration</b>, onglet <b>Gestion des plugins</b>). Rechercher le plugin <b>H Connect</b> dans la barre de recherche. Clisuez sur <b>Installer</b>, le plugin sera automatiquement téléchargé et installé dans votre application. Votre plugin est désormais disponible sur votre application Hawk.
+
+## Depuis le site www.hawk-app.fr
+	
+Sur le site <b><a href="http://www.hawk-app.fr" target="_blank">www.hawk-app.fr</a></b>, allez sur la page <b>Plugins</b> dans le menu <b>Store</b>. Rechercher le plugin <b>H Connect</b>. Télécharger l'archive du plugin. Dézipper son contenu dans le repertoire <b><i>plugins</i></b> de votre application Hawk. Sur votre application Hawxk recharger la page Administration/Gestion des plugins. Le plugin est désormais disponible.
+
+	hawk/plugins/hconnect/
+
 # Dépendances
 
 Le plugin H-Connect ne possède aucunes dépendances avec d’autres plugins.
