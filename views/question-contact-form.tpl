@@ -15,8 +15,6 @@
 
 <script type="text/javascript">
 
-/*global app, ko, Lang */
-
 'use strict';
 
 (function(){
@@ -30,7 +28,9 @@
         constructor(data) {
 
             super({
-            	data : data/*,
+            	data : data,
+
+            	// se to save data
 		    	computed : {
 			        parameters : function() {
 			            return JSON.stringify({
@@ -43,32 +43,11 @@
     }
 
     var form = app.forms['h-contact-question-form'];
-
     const emv = new HQuestionContact({
         type: form.inputs.type.val(),
-        otpions: JSON.parse(form.inputs.parameters.val()).options ? JSON.parse(form.inputs.parameters.val()).options.join("\n") : '',
-        parameters : JSON.parse(form.inputs.parameters.val())
+        options: JSON.parse(form.inputs.parameters.val()).options ? JSON.parse(form.inputs.parameters.val()).options.join("\n") : ''
     });
 
     emv.$apply(form.node.get(0));
 })();
-	
-	/*
-	(function(){
-
-		var parameters = JSON.parse(app.forms[""].inputs['parameters'].val());
-		var model = {
-			type : ko.observable(app.forms["h-contact-question-form"].inputs['type'].val()),
-			options : ko.observable(parameters.options ? parameters.options.join("\n") : ''),
-		};
-		
-		model.parameters = ko.computed(function(){
-			return JSON.stringify({
-				options : this.options() ? this.options().split("\n") : [],
-			});
-		}.bind(model));
-
-		ko.applyBindings(model, $("#h-contact-question-form").get(0));
-	})();
-	*/
 </script>

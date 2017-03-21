@@ -5,7 +5,6 @@
     {{ $form->fieldsets['general'] }}
 {/assign}
 
-
 {assign name="custom"}
     {{ $form->fieldsets['custom'] }}
 {/assign}

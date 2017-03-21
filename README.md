@@ -16,7 +16,7 @@ Depuis votre application Hawk, dans le gestionnaire de plugin (menu <b>Administr
 	
 Sur le site <b><a href="http://www.hawk-app.fr" target="_blank">www.hawk-app.fr</a></b>, allez sur la page <b>Plugins</b> dans le menu <b>Store</b>. Rechercher le plugin <b>H Connect</b>. Télécharger l'archive du plugin. Dézipper son contenu dans le repertoire <b><i>plugins</i></b> de votre application Hawk. Sur votre application Hawxk recharger la page Administration/Gestion des plugins. Le plugin est désormais disponible.
 
-	hawk/plugins/hconnect/
+	hawk/plugins/h-connect/
 
 # Dépendances
 

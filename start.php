@@ -70,7 +70,6 @@ App::router()->prefix('/h-connect', function(){
         'action' => 'ConnectController.export'
     ));
 
-
     // Autocomplete contact
     App::router()->get('h-connect-contact-autocomplete', '/autocomplete-contact', array(
         'action' => 'ConnectController.autoCompleteContact'
